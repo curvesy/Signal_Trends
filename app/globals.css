@@ -2,32 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* Container for the banner */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.banner-bg-two {
+  @apply bg-[url(/banner_bg02.jpg)] bg-cover bg-center absolute w-full h-[calc(100%_-_164px)] z-[-1] left-0 top-0 before:content-[""] before:absolute before:bg-[url(/banner_shape.svg)] before:bg-cover before:bg-center before:w-full before:h-[722px] before:z-[-1] before:left-0 before:-bottom-10;
+}
+@media (max-width: 1800px) {
+  .banner-bg-two {
+    @apply h-[calc(100%_-_115px)] before:h-[600px];
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width: 1199.98px) {
+  .banner-bg-two::before {
+    @apply h-[480px];
+  }
+  .banner-bg-two {
+    @apply h-[calc(100%_-_100px)];
+  }
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (max-width: 991.98px) {
+  .banner-bg-two {
+    @apply h-[calc(100%_-_120px)] before:h-[400px];
+  }
+}
+@media (max-width: 767.98px) {
+  .banner-bg-two::before {
+    @apply h-[260px] bg-bottom;
+  }
+  .banner-bg-two {
+    @apply h-[calc(100%_-_95px)];
   }
 }
